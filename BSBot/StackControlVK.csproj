@@ -1,0 +1,25 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net7.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="VkNet" Version="1.77.0-alpha-96" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\CoolSymbolsCore\StackControle.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="token.txt">
+      <LastGenOutput>token.Designer.cs</LastGenOutput>
+      <Generator>ResXFileCodeGenerator</Generator>
+    </None>
+  </ItemGroup>
+
+</Project>
