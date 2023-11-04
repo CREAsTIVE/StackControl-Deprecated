@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BeautifulSymbols.BSObjects
+namespace StackControl.BSObjects
 {
-    public class Number : BSObject
+    public class Number : SCObject
     {
         public Number(double number) => Value = number;
 
@@ -14,6 +14,6 @@ namespace BeautifulSymbols.BSObjects
         public override string StackView() => Value.ToString();
 
         public static implicit operator Number(double v) => new Number(v);
-        public override BSObject Clone() => new Number(Value);
+        public override SCObject Clone() => new Number(Value);
     }
 }

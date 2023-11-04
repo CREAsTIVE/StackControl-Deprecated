@@ -1,4 +1,4 @@
-﻿using BeautifulSymbols;
+﻿using StackControl;
 
 Compilator compilator = new Compilator();
 while (true)

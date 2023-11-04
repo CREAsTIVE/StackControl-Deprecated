@@ -1,17 +1,17 @@
-﻿using BeautifulSymbols.BSObjects;
+﻿using StackControl.BSObjects;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BeautifulSymbols.BSCommands
+namespace StackControl.SCCommands
 {
     public class ArrayPop : BuiltInFunction
     {
         public override void Call(RuntimeEnvironment environment)
         {
-            var arr = environment.GetCurrent().As<BSArray>().MakeOriginal();
+            var arr = environment.GetCurrent().As<SCArray>().MakeOriginal();
             arr.Values.RemoveAt(arr.Values.Count - 1);
         }
     }
@@ -19,7 +19,7 @@ namespace BeautifulSymbols.BSCommands
     {
         public override void Call(RuntimeEnvironment environment)
         {
-            var arr = environment.GetCurrent().As<BSArray>().MakeOriginal();
+            var arr = environment.GetCurrent().As<SCArray>().MakeOriginal();
             arr.Values.RemoveAt(0);
         }
     }

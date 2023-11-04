@@ -1,11 +1,11 @@
-﻿using BeautifulSymbols.BSObjects;
+﻿using StackControl.BSObjects;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BeautifulSymbols.BSCommands
+namespace StackControl.SCCommands
 {
     public class CommandContainerCaller : BuiltInFunction
     {

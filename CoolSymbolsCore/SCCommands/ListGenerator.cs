@@ -4,13 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BeautifulSymbols.BSCommands
+namespace StackControl.SCCommands
 {
     internal class ListGenerator : BuiltInFunction
     {
         public override void Call(RuntimeEnvironment environment)
         {
-            BSObjects.BSArray array = new();
+            BSObjects.SCArray array = new();
             var current = environment.GetCurrent();
             while (!(current is BSObjects.ListOpener))
             {

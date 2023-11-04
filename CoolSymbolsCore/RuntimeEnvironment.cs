@@ -4,15 +4,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BeautifulSymbols
+namespace StackControl
 {
     public class RuntimeEnvironment
     {
 
-        public LinkedList<BSObject> Stack = new();
-        public LinkedListNode<BSObject>? CursorNode;
+        public LinkedList<SCObject> Stack = new();
+        public LinkedListNode<SCObject>? CursorNode;
 
-        public void Push(BSObject value)
+        public void Push(SCObject value)
         {
             if (CursorNode != null)
                 CursorNode = Stack.AddAfter(CursorNode, value);
@@ -20,7 +20,7 @@ namespace BeautifulSymbols
                 CursorNode = Stack.AddFirst(value);
         }
 
-        public BSObject Pop()
+        public SCObject Pop()
         {
             if (CursorNode == null)
                 throw new BSStackUnderflowException();
@@ -46,7 +46,7 @@ namespace BeautifulSymbols
                         CursorNode = CursorNode?.Previous;
         }
 
-        public BSObject? Current { get => CursorNode?.Value; }
-        public BSObject GetCurrent() => CursorNode?.Value ?? throw new BSStackUnderflowException();
+        public SCObject? Current { get => CursorNode?.Value; }
+        public SCObject GetCurrent() => CursorNode?.Value ?? throw new BSStackUnderflowException();
     }
 }

@@ -1,17 +1,17 @@
-﻿using BeautifulSymbols.BSObjects;
+﻿using StackControl.BSObjects;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BeautifulSymbols.BSCommands
+namespace StackControl.SCCommands
 {
     internal class CommandsContainerArrayCaller : Command
     {
 
-        IEnumerable<BSObject> commands;
-        public CommandsContainerArrayCaller(IEnumerable<BSObject> commands) => this.commands = commands;
+        IEnumerable<SCObject> commands;
+        public CommandsContainerArrayCaller(IEnumerable<SCObject> commands) => this.commands = commands;
 
         public override string RawView => $"({string.Join(" ", commands.Select(e => e.As<CommandContainer>().Command.RawView))})";
 

@@ -4,15 +4,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BeautifulSymbols.BSCommands
+namespace StackControl.SCCommands
 {
-    public class CustomDelegate : Command
+    public class PopNext : BuiltInFunction
     {
-        public List<Command> Commands = new();
-        public override string RawView => throw new NotImplementedException();
-
         public override void Call(RuntimeEnvironment environment)
         {
+            environment.Move(1);
+            environment.Pop();
         }
     }
 }

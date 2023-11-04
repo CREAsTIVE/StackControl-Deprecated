@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BeautifulSymbols.BSObjects
+namespace StackControl.BSObjects
 {
     public interface ICallable
     {

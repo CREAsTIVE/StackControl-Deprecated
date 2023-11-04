@@ -1,17 +1,17 @@
-﻿using BeautifulSymbols.BSObjects;
+﻿using StackControl.BSObjects;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BeautifulSymbols.BSCommands
+namespace StackControl.SCCommands
 {
     public class ArrayDoubleSwap : BuiltInFunction
     {
         public override void Call(RuntimeEnvironment environment)
         {
-            var arr = environment.GetCurrent().As<BSArray>();
+            var arr = environment.GetCurrent().As<SCArray>();
             arr.MakeOriginal();
             var temp = arr.Values.Last();
             arr.Values[arr.Values.Count-1] = arr.Values[arr.Values.Count-2];

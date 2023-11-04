@@ -1,7 +1,7 @@
-﻿using BeautifulSymbols.BSObjects;
+﻿using StackControl.BSObjects;
 using System.Text;
 
-namespace BeautifulSymbols.BSCommands
+namespace StackControl.SCCommands
 {
     public abstract class TwoParamsCalc : BuiltInFunction
     {
@@ -11,7 +11,7 @@ namespace BeautifulSymbols.BSCommands
         {
             var current = environment.GetCurrent();
 
-            if (current is BSObjects.BSArray arr)
+            if (current is BSObjects.SCArray arr)
             {
                 environment.Pop();
                 environment.Push(Calculate(arr.Values.Select(e => (e as Number) ?? throw new BSNotANumberException())));

@@ -1,11 +1,11 @@
-﻿using BeautifulSymbols.BSCommands;
+﻿using StackControl.SCCommands;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BeautifulSymbols
+namespace StackControl
 {
     public class Environment
     {
@@ -29,7 +29,7 @@ namespace BeautifulSymbols
             { ":", new Dub() },
             { "←", new Move(-1) },
             { "→", new Move(1) },
-            { "⇡", new BSCommands.Range() },
+            { "⇡", new SCCommands.Range() },
             { "!", new CommandContainerCaller() },
             { "packfn", new CommandsContainerArrayPacker() },
             { "⇆", new SwapDouble()},

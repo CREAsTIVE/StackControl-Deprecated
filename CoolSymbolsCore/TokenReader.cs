@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BeautifulSymbols
+namespace StackControl
 {
     public class TokenReader<T>
     {

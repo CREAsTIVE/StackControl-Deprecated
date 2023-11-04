@@ -1,4 +1,4 @@
-﻿using BeautifulSymbols;
+﻿using StackControl;
 using Newtonsoft.Json.Linq;
 using System.Runtime.InteropServices;
 using System.Web;
@@ -36,7 +36,7 @@ while (true)
 
             if (message.StartsWith("$"))
             {
-                var env = new BeautifulSymbols.RuntimeEnvironment();
+                var env = new StackControl.RuntimeEnvironment();
                 var tokens = Compilator.SepOnTokens(message[1..]);
                 compiler.UnpuckAliases(tokens);
                 try

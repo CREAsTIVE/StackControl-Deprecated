@@ -1,5 +1,5 @@
-﻿using BeautifulSymbols.BSCommands;
-using BeautifulSymbols.BSObjects;
+﻿using StackControl.SCCommands;
+using StackControl.BSObjects;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,7 +8,7 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
-namespace BeautifulSymbols
+namespace StackControl
 {
     public class Compilator
     {

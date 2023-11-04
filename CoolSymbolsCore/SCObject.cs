@@ -4,13 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BeautifulSymbols
+namespace StackControl
 {
-    public abstract class BSObject
+    public abstract class SCObject
     {
         public virtual string StackView() => "?";
         public override string ToString() => $"BSObject: {StackView()}";
-        public virtual BSObject Clone() => this;
+        public virtual SCObject Clone() => this;
 
         public T As<T>() where T : class => (this as T) ?? throw new BSWrongArgumentTypeException();
     }

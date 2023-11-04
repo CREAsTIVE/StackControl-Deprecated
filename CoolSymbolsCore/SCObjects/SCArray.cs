@@ -4,32 +4,32 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BeautifulSymbols.BSObjects
+namespace StackControl.BSObjects
 {
-    public class BSArray : BSObject, ICallable
+    public class SCArray : SCObject, ICallable
     {
         public bool Original = true;
 
-        public List<BSObject> Values;
-        public BSArray(List<BSObject> values) { Values = values; Original = false; }
-        public BSArray() { Values = new(); }
-        public BSArray(BSArray old)
+        public List<SCObject> Values;
+        public SCArray(List<SCObject> values) { Values = values; Original = false; }
+        public SCArray() { Values = new(); }
+        public SCArray(SCArray old)
         {
             Values = old.Values;
             Original = false;
         }
 
         // Call before update values
-        public BSArray MakeOriginal()
+        public SCArray MakeOriginal()
         {
             if (Original)
                 return this;
             Original = true;
-            Values = new List<BSObject>(Values);
+            Values = new List<SCObject>(Values);
             return this;
         }
 
-        public override BSObject Clone() => new BSArray(Values);
+        public override SCObject Clone() => new SCArray(Values);
 
         public override string StackView() => $"[{string.Join(", ", Values.Select(e => e.StackView()))}]";
 

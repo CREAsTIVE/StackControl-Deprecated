@@ -1,18 +1,18 @@
-﻿using BeautifulSymbols.BSObjects;
+﻿using StackControl.BSObjects;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BeautifulSymbols.BSCommands
+namespace StackControl.SCCommands
 {
     public class Each : BuiltInFunction
     {
         public override void Call(RuntimeEnvironment environment)
         {
             var callable = environment.Pop().As<ICallable>();
-            var array = environment.GetCurrent().As<BSArray>();
+            var array = environment.GetCurrent().As<SCArray>();
 
             array.MakeOriginal();
             for (var i = 0; i < array.Values.Count; i++)
