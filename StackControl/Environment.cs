@@ -1,4 +1,5 @@
-﻿using StackControl.SCCommands;
+﻿using StackControl.BSObjects;
+using StackControl.SCCommands;
 using StackControle.SCCommands;
 using System;
 using System.Collections.Generic;
@@ -53,6 +54,8 @@ namespace StackControl
             { "≤", new SmallerOrEquals() },
             { "≥", new BiggerOrEquals() },
             { "↥", new Maximum() },
+
+            { "∅", new StackPusher(new Empty()) }
         };
 
         public static Dictionary<string, string> DefaultAliases = new()
@@ -64,17 +67,22 @@ namespace StackControl
             { "unpack", "⦽" },
             { "arrswap", "↹" },
             { "reverse", "⟺" },
+
             { "each", "∵" },
+
             { "aput", "⇥" },
             { "apush", "⇤" },
             { "apop", "⟄" },
             { "apopfirst", "⟃" },
+            { "aempty", "∅" },
+
             { "popnext", ";" },
             { "where", "⊚" },
             { "indexof", "⊗" },
             { "soreq", "≤" },
             { "boreq", "≥" },
-            { "max", "↥" }
+            { "max", "↥" },
+           
         };
 
         public string? GetByAlias(string key)
