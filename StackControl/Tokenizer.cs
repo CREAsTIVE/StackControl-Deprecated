@@ -32,6 +32,7 @@ namespace StackControl
 					Tokens.FunctionCloser => ")",
 					Tokens.Source source => source.any,
 					Tokens.Command cmd => cmd.name,
+					Tokens.FunctionMark => "#",
 					_ => "unknow"
 				};
 

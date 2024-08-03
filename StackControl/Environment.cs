@@ -39,7 +39,6 @@ namespace StackControl
             { "↹", new ArrayDoubleSwap() },
             { "?", new InlineIf()},
             { "⟺", new ArrayReverse() },
-            { "∵", new Each() },
             { "⇥", new ArrayPut() },
             { "⇤", new ArrayPush() },
             { "⟄", new ArrayPop() },
@@ -49,7 +48,10 @@ namespace StackControl
             { "⊚", new SelectWhere() },
             { "⊗", new IndexOf() },
 
-            { "=", new Equals() },
+            { "⟲", new Repeat() },
+			{ "∵", new Each() },
+
+			{ "=", new Equals() },
             { "<", new Smaller() },
             { ">", new Bigger() },
             { "≤", new SmallerOrEquals() },
@@ -58,7 +60,10 @@ namespace StackControl
 
             { "∪", new Union() },
 
-            { "∅", new StackPusher(new SCEmptyArray()) }
+            { "∅", new StackPusher(new SCEmptyArray()) },
+
+            { "⟧", new StackPusher(new SCListOpenGeneratorCloser()) },
+            { "⟦", new ListOpenGenerator()}
         };
 
         public static Dictionary<string, string> DefaultAliases = new()
@@ -71,7 +76,9 @@ namespace StackControl
             { "arrswap", "↹" },
             { "reverse", "⟺" },
 
+            { "repeat", "⟲" },
             { "each", "∵" },
+
             { "union", "∪" },
 
             { "aput", "⇥" },
@@ -87,7 +94,9 @@ namespace StackControl
             { "soreq", "≤" },
             { "boreq", "≥" },
             { "max", "↥" },
-        };
+            { "listgenopen", "⟦" },
+            { "listgenclose", "⟧" }
+		};
 
         public string? GetByAlias(string key)
         {

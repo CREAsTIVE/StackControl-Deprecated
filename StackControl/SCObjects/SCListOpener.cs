@@ -6,5 +6,12 @@ using System.Threading.Tasks;
 
 namespace StackControl.SCObjects
 {
-    internal class SCListOpener : SCObject { }
+    internal class SCListOpener : SCObject
+    {
+        public override string StackView() => "[";
+	}
+    public class SCListOpenGeneratorCloser : SCObject
+    {
+        public override string StackView() => "⟧";
+	}
 }
