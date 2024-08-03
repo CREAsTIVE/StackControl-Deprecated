@@ -12,6 +12,7 @@ namespace StackControl.SCCommands
         public override void Call(RuntimeEnvironment environment)
         {
             var arr = environment.GetCurrent().As<SCArray>().MakeOriginal();
+            environment.Push(arr.Values[arr.Values.Count - 1]);
             arr.Values.RemoveAt(arr.Values.Count - 1);
         }
     }
@@ -20,7 +21,8 @@ namespace StackControl.SCCommands
         public override void Call(RuntimeEnvironment environment)
         {
             var arr = environment.GetCurrent().As<SCArray>().MakeOriginal();
-            arr.Values.RemoveAt(0);
+			environment.Push(arr.Values[0]);
+			arr.Values.RemoveAt(0);
         }
     }
 

@@ -16,6 +16,8 @@ namespace StackControl.SCObjects
             SCNumber id => value == id.Value,
             _ => false
         };
+
+        public override string StackView() => $"'{value}'";
 	}
     public class SCString : SCArray
     {

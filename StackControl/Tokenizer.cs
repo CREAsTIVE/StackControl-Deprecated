@@ -24,7 +24,7 @@ namespace StackControl
 			foreach (var token in tokens)
 				result += token switch
 				{
-					Tokens.String str => $"{str.value.ToString().Replace("\"", "\\\"\"")}",
+					Tokens.String str => $"\"{str.value.ToString().Replace("\"", "\\\"\"")}\"",
 					Tokens.Number number => $"{number.value}",
 					Tokens.ListOpener => "[",
 					Tokens.ListCloser => "]",

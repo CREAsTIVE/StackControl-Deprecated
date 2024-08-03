@@ -44,7 +44,8 @@ namespace StackControl
             { "⇤", new ArrayPush() },
             { "⟄", new ArrayPop() },
             { "⟃", new ArrayPopFirst() },
-            { ";", new PopNext() },
+            { "⟹", new Pop.Next() },
+            { "⟸", new Pop.Shift() },
             { "⊚", new SelectWhere() },
             { "⊗", new IndexOf() },
 
@@ -79,7 +80,8 @@ namespace StackControl
             { "apopfirst", "⟃" },
             { "aempty", "∅" },
 
-            { "popnext", ";" },
+            { "popnext", "⟹" },
+            { "popbefore", "⟸" },
             { "where", "⊚" },
             { "indexof", "⊗" },
             { "soreq", "≤" },
