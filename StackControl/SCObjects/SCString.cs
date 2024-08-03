@@ -22,10 +22,10 @@ namespace StackControl.SCObjects
     public class SCString : SCArray
     {
         public SCString(string value) => Values = value.Select<char, SCObject>(ch => new SCChar(ch)).ToList();
-        public SCString(SCArray<SCChar> charrArr) => Values = new List<SCObject>(charrArr.Values);
+        public SCString(SCArray<SCObject> charrArr) => Values = new List<SCObject>(charrArr.Values);
 
         public override string StackView() => $"\"{Values.Select(element => element.As<SCChar>().value).JoinEnumerable("")}\"";
 
-        public override SCObject Clone() => new SCString(this.As<SCArray<SCChar>>());
+        public override SCObject Clone() => new SCString(this);
     }
 }

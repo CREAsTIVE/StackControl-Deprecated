@@ -29,6 +29,7 @@ namespace StackControl
             { "%", new Mod() },
             { ",", new Pop() },
             { ":", new Dub() },
+            { "⁞", new QuadroDublication() },
             { "←", new Move(-1) },
             { "→", new Move(1) },
             { "⇡", new SCCommands.Range() },
@@ -37,8 +38,9 @@ namespace StackControl
             { "⇆", new SwapDouble()},
             { "⦽", new Unpack()},
             { "↹", new ArrayDoubleSwap() },
-            { "?", new InlineIf()},
-            { "⟺", new ArrayReverse() },
+            { "⁇", new InlineIfElse()},
+            { "?", new ExecuteWhen() },
+            { "🗘", new ArrayReverse() },
             { "⇥", new ArrayPut() },
             { "⇤", new ArrayPush() },
             { "⟄", new ArrayPop() },
@@ -47,6 +49,9 @@ namespace StackControl
             { "⟸", new Pop.Shift() },
             { "⊚", new SelectWhere() },
             { "⊗", new IndexOf() },
+
+            { "↶", new ShiftArrayRight() },
+            { "↷", new ShiftArrayLeft() },
 
             { "⟲", new Repeat() },
 			{ "∵", new Each() },
@@ -57,6 +62,8 @@ namespace StackControl
             { "≤", new SmallerOrEquals() },
             { "≥", new BiggerOrEquals() },
             { "↥", new Maximum() },
+
+            { "⬌", new ArrayLength()},
 
             { "∪", new Union() },
 
@@ -72,9 +79,12 @@ namespace StackControl
             { "mvr", "→" },
             { "range", "⇡" },
             { "swap", "⇆" },
+
+            { "quadrodub", "⁞" },
+
             { "unpack", "⦽" },
             { "arrswap", "↹" },
-            { "reverse", "⟺" },
+            { "reverse", "🗘" },
 
             { "repeat", "⟲" },
             { "each", "∵" },
@@ -86,6 +96,11 @@ namespace StackControl
             { "apop", "⟄" },
             { "apopfirst", "⟃" },
             { "aempty", "∅" },
+
+            { "aloopr", "↶" },
+            { "aloopl", "↷"},
+
+            { "alen", "⬌" },
 
             { "popnext", "⟹" },
             { "popbefore", "⟸" },
