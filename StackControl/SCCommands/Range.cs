@@ -11,10 +11,10 @@ namespace StackControl.SCCommands
     {
         public override void Call(RuntimeEnvironment environment)
         {
-            var num = environment.Pop().As<Number>();
+            var num = environment.Pop().As<SCNumber>();
             var arr = new BSObjects.SCArray();
             for (int i = 0; i < num.Value; i++)
-                arr.Values.Add((Number)i);
+                arr.Values.Add((SCNumber)i);
             environment.Push(arr);
         }
     }

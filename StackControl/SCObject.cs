@@ -18,7 +18,7 @@ namespace StackControl
         public T As<T>() where T : class => (this as T) ?? throw new BSWrongArgumentTypeException();
 
         public void Call(RuntimeEnvironment environment) =>
-            environment.Push(SCEquals(environment.Pop()) ? (Number) 1 : (Number) 0);
+            environment.Push(SCEquals(environment.Pop()) ? (SCNumber) 1 : (SCNumber) 0);
             //environment.Push(environment.Pop().SCEquals(environment.Pop()) ? (Number)1 : (Number)0);
     }
 }

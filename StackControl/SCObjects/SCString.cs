@@ -6,16 +6,16 @@ using System.Threading.Tasks;
 
 namespace StackControl.BSObjects
 {
-    public class String : SCObject
+    public class SCString : SCObject
     {
-        public String(string value) => this.Value = value;
+        public SCString(string value) => this.Value = value;
         public string Value;
 
         public override string StackView() => $"\"{Value}\"";
 
-        public override SCObject Clone() => new String(Value);
+        public override SCObject Clone() => new SCString(Value);
 
         public override bool SCEquals(SCObject other) =>
-            other is String str && str.Value == Value;
+            other is SCString str && str.Value == Value;
     }
 }

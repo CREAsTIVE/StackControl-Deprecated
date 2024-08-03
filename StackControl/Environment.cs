@@ -55,7 +55,7 @@ namespace StackControl
             { "≥", new BiggerOrEquals() },
             { "↥", new Maximum() },
 
-            { "∅", new StackPusher(new Empty()) }
+            { "∅", new StackPusher(new SCEmptyArray()) }
         };
 
         public static Dictionary<string, string> DefaultAliases = new()
@@ -82,7 +82,6 @@ namespace StackControl
             { "soreq", "≤" },
             { "boreq", "≥" },
             { "max", "↥" },
-           
         };
 
         public string? GetByAlias(string key)

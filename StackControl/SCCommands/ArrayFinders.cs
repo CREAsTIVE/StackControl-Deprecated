@@ -12,6 +12,6 @@ namespace StackControle.SCCommands
     public class Maximum : BuiltInCommand
     {
         public override void Call(RuntimeEnvironment environment) =>
-            environment.Push(environment.Pop().As<SCArray>().Values.MaxBy(e => e.As<Number>().Value)?.As<Number>() ?? new Number(double.MinValue));
+            environment.Push(environment.Pop().As<SCArray>().Values.MaxBy(e => e.As<SCNumber>().Value)?.As<SCNumber>() ?? new SCNumber(double.MinValue));
     }
 }

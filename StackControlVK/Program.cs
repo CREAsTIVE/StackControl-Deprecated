@@ -37,12 +37,18 @@ while (true)
             if (message.StartsWith("$"))
             {
                 var env = new StackControl.RuntimeEnvironment();
-                var tokens = Compiler.SepOnTokens(message[1..]);
-                compiler.UnpuckAliases(tokens);
+                var tokens = compiler.tokenizer.Parse(message[1..]);
                 try
                 {
-                    Compiler.Run(compiler.GenerateCommands(tokens), env);
-                } catch (Exception e)
+                    Compiler.Run(compiler.ParseCommands(tokens.ToArray()), env);
+					api.Messages.Send(new()
+					{
+						PeerId = peerId,
+						RandomId = 0,
+						Message = $"Parsed:\n{compiler.tokenizer.Unparse(tokens)}\n----------\n" +
+                            $"{string.Join("\n", env.Stack.Select(e => e.StackView()))}",
+					});
+				} catch (Exception e)
                 {
                     api.Messages.Send(new()
                     {
@@ -51,12 +57,7 @@ while (true)
                         Message = $"ERROR: {e.Message}",
                     });
                 }
-                api.Messages.Send(new()
-                {
-                    PeerId = peerId,
-                    RandomId = 0,
-                    Message = $"{string.Join(" ", tokens)}\n----------\n{string.Join("\n", env.Stack.Select(e => e.StackView()))}",
-                });
+                
             }
         }
     }

@@ -6,5 +6,5 @@ using System.Threading.Tasks;
 
 namespace StackControl.BSObjects
 {
-    internal class ListOpener : SCObject { }
+    internal class SCListOpener : SCObject { }
 }

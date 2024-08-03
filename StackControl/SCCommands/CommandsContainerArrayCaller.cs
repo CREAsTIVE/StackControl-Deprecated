@@ -13,12 +13,12 @@ namespace StackControl.SCCommands
         IEnumerable<SCObject> commands;
         public CommandsContainerArrayCaller(IEnumerable<SCObject> commands) => this.commands = commands;
 
-        public override string RawView => $"({string.Join(" ", commands.Select(e => e.As<CommandContainer>().Command.RawView))})";
+        public override string RawView => $"({string.Join(" ", commands.Select(e => e.As<SCCommandContainer>().Command.RawView))})";
 
         public override void Call(RuntimeEnvironment environment)
         {
             foreach (var item in commands)
-                item.As<CommandContainer>().Command.Call(environment);
+                item.As<SCCommandContainer>().Command.Call(environment);
         }
     }
 }

@@ -36,27 +36,33 @@ namespace StackControl
             while (tokens.HasNext)
             {
                 var token = tokens.GetNext();
-                if (token is Tokens.String str)
-                    commands.AddLast(new StackPusher(new BSObjects.String(str.value)));
-                else if (token is Tokens.Number num)
-                    commands.AddLast(new StackPusher(new Number(num.value)));
-                else if (token is Tokens.Command cmd)
-                    commands.AddLast(environment.Commands[cmd.name]);
-                else if (token is Tokens.ListOpener)
-                    commands.AddLast(new StackPusher(new ListOpener()));
-                else if (token is Tokens.ListCloser)
-                    commands.AddLast(new ListGenerator());
+                if (token is Tokens.FunctionCloser)
+                    break;
                 else if (token is Tokens.FunctionOpener)
                 {
-                    commands.AddLast(new StackPusher(new ListOpener()));
-                    commands = new LinkedList<Command>(commands.Concat(ParseCommands(tokens).Select(e => new StackPusher(new CommandContainer(e)))));
+                    commands.AddLast(new StackPusher(new SCListOpener()));
+                    var subCommands = ParseCommands(tokens);
+                    foreach (var subCommand in subCommands)
+                        commands.AddLast(new StackPusher(new SCCommandContainer(subCommand)));
                     commands.AddLast(new ListGenerator());
                 }
-                else if (token is Tokens.FunctionCloser)
-                    break;
+                else
+                    commands.AddLast(ParseSingleCommand(tokens, token));
             }
             return commands;
         }
+
+        public Command ParseSingleCommand(TokenReader<Token> tokens, Token currentToken) =>
+            currentToken switch
+            {
+                Tokens.String str => new StackPusher(new BSObjects.SCString(str.value)),
+                Tokens.Number num => new StackPusher(new SCNumber(num.value)),
+                Tokens.Command cmd => environment.Commands[cmd.name],
+                Tokens.ListOpener => new StackPusher(new SCListOpener()),
+                Tokens.ListCloser => new ListGenerator(),
+                Tokens.FunctionMark => new StackPusher(new SCCommandContainer(ParseSingleCommand(tokens, tokens.GetNext()))),
+                _ => throw new NotImplementedException()
+            };
 
         public static void Run(IEnumerable<Command> commands, RuntimeEnvironment runtimeEnvironment)
         {

@@ -22,8 +22,8 @@ namespace StackControle.SCCommands
             {
                 environment.Push(arr.Values[i]);
                 prep.Call(environment);
-                var prepResult = environment.Pop().As<Number>();
-                if (prepResult.Value != 0) result.Values.Add((Number)i);
+                var prepResult = environment.Pop().As<SCNumber>();
+                if (prepResult.Value != 0) result.Values.Add((SCNumber)i);
             }
         }
     }

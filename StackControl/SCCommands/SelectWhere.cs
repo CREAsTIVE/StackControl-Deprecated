@@ -21,7 +21,7 @@ namespace StackControle.SCCommands
             {
                 environment.Push(item);
                 method.Call(environment);
-                var res = environment.Pop().As<Number>();
+                var res = environment.Pop().As<SCNumber>();
                 if (res.Value != 0)
                     newArr.Values.Add(item);
             }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace StackControl.BSObjects
 {
-    public class Empty : SCObject // Represents empty array
+    public class SCEmptyArray : SCObject // Represents empty array
     {
         public override string StackView() => "∅";
 		public override bool SCEquals(SCObject other)
@@ -42,9 +42,9 @@ namespace StackControl.BSObjects
 
         public override SCObject Clone() => new SCArray<T>(Values);
 
-        public override string StackView() => $"[{string.Join(", ", Values.Select(e => e.StackView()))}]";
+        public override string StackView() => $"[{string.Join(" ", Values.Select(e => e.StackView()))}]";
 
-        public void Call(RuntimeEnvironment environment)
+        public new void Call(RuntimeEnvironment environment)
         {
             foreach (var item in Values)
                 item.As<ICallable>().Call(environment);
@@ -52,7 +52,7 @@ namespace StackControl.BSObjects
 
         public override bool SCEquals(SCObject other)
         {
-            if (other is Empty) return Values.Count == 0;
+            if (other is SCEmptyArray) return Values.Count == 0;
             else if (other is SCArray<T> arr) {
                 if (arr.Values == Values) return true;
                 if (arr.Values.Count == Values.Count)

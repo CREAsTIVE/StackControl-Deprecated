@@ -11,7 +11,7 @@ namespace StackControl
         T[] tokens;
         int pos = 0;
 
-        public TokenReader(T[] tokens) => this.tokens = tokens;
+		public TokenReader(T[] tokens) => this.tokens = tokens.Where(token => token is not Tokens.Source).ToArray();
 
 		public bool HasNext => pos < tokens.Length;
 		public T GetNext() => tokens[pos++];

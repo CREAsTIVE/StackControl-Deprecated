@@ -6,17 +6,17 @@ using System.Threading.Tasks;
 
 namespace StackControl.BSObjects
 {
-    public class Number : SCObject
+    public class SCNumber : SCObject
     {
-        public Number(double number) => Value = number;
+        public SCNumber(double number) => Value = number;
 
         public double Value;
         public override string StackView() => Value.ToString();
 
-        public static implicit operator Number(double v) => new Number(v);
-        public override SCObject Clone() => new Number(Value);
+        public static implicit operator SCNumber(double v) => new SCNumber(v);
+        public override SCObject Clone() => new SCNumber(Value);
 
         public override bool SCEquals(SCObject obj) =>
-            obj is Number num && num.Value == Value;
+            obj is SCNumber num && num.Value == Value;
     }
 }

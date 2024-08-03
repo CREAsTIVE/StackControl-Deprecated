@@ -19,5 +19,5 @@ while (true)
 
     foreach (var stackVal in environment.Stack)
         Console.WriteLine(stackVal.StackView());
-    Console.WriteLine("---------\n");
+    Console.WriteLine("----------\n");
 }

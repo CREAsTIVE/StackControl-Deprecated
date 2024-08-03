@@ -6,19 +6,19 @@ using System.Threading.Tasks;
 
 namespace StackControl.BSObjects
 {
-    public class CommandContainer : SCObject, ICallable
+    public class SCCommandContainer : SCObject, ICallable
     {
-        public CommandContainer(Command command) => Command = command;
+        public SCCommandContainer(Command command) => Command = command;
         public Command Command;
         public override string StackView() => $"{Command.RawView}";
 
-        public override SCObject Clone() => new CommandContainer(Command);
+        public override SCObject Clone() => new SCCommandContainer(Command);
 
         public void Call(RuntimeEnvironment environment) => Command.Call(environment);
 
         public override bool SCEquals(SCObject other)
         {
-            if (other is CommandContainer cc)
+            if (other is SCCommandContainer cc)
                 return cc.Command == Command;
             return false;
         }

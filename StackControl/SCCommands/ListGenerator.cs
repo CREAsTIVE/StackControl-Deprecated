@@ -12,7 +12,7 @@ namespace StackControl.SCCommands
         {
             BSObjects.SCArray array = new();
             var current = environment.GetCurrent();
-            while (!(current is BSObjects.ListOpener))
+            while (!(current is BSObjects.SCListOpener))
             {
                 array.Values.Add(current);
                 environment.Pop();

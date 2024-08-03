@@ -1,5 +1,6 @@
 ﻿using StackControl.BSObjects;
 using StackControl.SCCommands;
+using StackControl.Tokens;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -100,6 +101,8 @@ namespace StackControl
 					tokens.AddLast(new Tokens.FunctionCloser());
 				else if (char.IsSeparator(next))
 					tokens.AddLast(new Tokens.Source(next.ToString()));
+				else if (next == '#')
+					tokens.AddLast(new FunctionMark());
 				else
 					tokens.AddLast(new Tokens.Command(next.ToString()));
 			}
@@ -137,6 +140,7 @@ namespace StackControl
 		public class ListCloser : Token { }
 		public class FunctionOpener : Token { }
 		public class FunctionCloser : Token { }
+		public class FunctionMark : Token { }
 		
 	}
 }

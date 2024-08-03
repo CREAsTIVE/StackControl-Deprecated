@@ -13,7 +13,7 @@ namespace StackControl.SCCommands
         {
             environment.Pop().As<ICallable>().Call(environment);
             
-            if (environment.Pop().As<Number>().Value != 0)
+            if (environment.Pop().As<SCNumber>().Value != 0)
             {
                 environment.Move(-1);
                 environment.Pop();
