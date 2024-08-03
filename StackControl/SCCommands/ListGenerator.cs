@@ -10,9 +10,9 @@ namespace StackControl.SCCommands
     {
         public override void Call(RuntimeEnvironment environment)
         {
-            BSObjects.SCArray array = new();
+            SCObjects.SCArray array = new();
             var current = environment.GetCurrent();
-            while (!(current is BSObjects.SCListOpener))
+            while (!(current is SCObjects.SCListOpener))
             {
                 array.Values.Add(current);
                 environment.Pop();

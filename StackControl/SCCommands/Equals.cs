@@ -1,5 +1,5 @@
 ﻿using StackControl;
-using StackControl.BSObjects;
+using StackControl.SCObjects;
 using StackControl.SCCommands;
 using System;
 using System.Collections.Generic;
@@ -23,8 +23,8 @@ namespace StackControle.SCCommands
         double toDouble(SCObject obj) => obj switch
         {
             SCNumber number => number.Value,
-            SCArray arr => arr.Values.Count,
-            StackControl.BSObjects.SCString str => str.Value.Length,
+			StackControl.SCObjects.SCString str => str.Values.Count,
+			SCArray arr => arr.Values.Count,
             _ => throw new NotImplementedException()
         };
     }

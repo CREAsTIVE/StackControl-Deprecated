@@ -1,4 +1,4 @@
-﻿using StackControl.BSObjects;
+﻿using StackControl.SCObjects;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,6 +10,6 @@ namespace StackControl.SCCommands
     public class CommandsContainerArrayPacker : BuiltInCommand
     {
         public override void Call(RuntimeEnvironment environment) =>
-            environment.Push(new SCCommandContainer(new CommandsContainerArrayCaller(environment.Pop().As<BSObjects.SCArray>().Values)));
+            environment.Push(new SCCommandContainer(new CommandsContainerArrayCaller(environment.Pop().As<SCObjects.SCArray>().Values)));
     }
 }

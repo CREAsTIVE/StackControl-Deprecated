@@ -1,4 +1,4 @@
-﻿using StackControl.BSObjects;
+﻿using StackControl.SCObjects;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,7 +15,7 @@ namespace StackControl
 
         public virtual bool SCEquals(SCObject other) => GetType().IsEquivalentTo(other.GetType());
 
-        public T As<T>() where T : class => (this as T) ?? throw new BSWrongArgumentTypeException();
+        public T As<T>() where T : class => (this as T) ?? throw new SCWrongArgumentTypeException();
 
         public void Call(RuntimeEnvironment environment) =>
             environment.Push(SCEquals(environment.Pop()) ? (SCNumber) 1 : (SCNumber) 0);

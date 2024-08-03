@@ -17,5 +17,5 @@ namespace StackControl
 
     public class BSNotANumberException : BSRuntimeException { }
 
-    public class BSWrongArgumentTypeException : BSRuntimeException { }
+    public class SCWrongArgumentTypeException : BSRuntimeException { }
 }

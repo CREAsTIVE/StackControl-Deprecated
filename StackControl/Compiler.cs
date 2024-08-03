@@ -1,5 +1,5 @@
 ﻿using StackControl.SCCommands;
-using StackControl.BSObjects;
+using StackControl.SCObjects;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -55,7 +55,7 @@ namespace StackControl
         public Command ParseSingleCommand(TokenReader<Token> tokens, Token currentToken) =>
             currentToken switch
             {
-                Tokens.String str => new StackPusher(new BSObjects.SCString(str.value)),
+                Tokens.String str => new StackPusher(new SCObjects.SCString(str.value)),
                 Tokens.Number num => new StackPusher(new SCNumber(num.value)),
                 Tokens.Command cmd => environment.Commands[cmd.name],
                 Tokens.ListOpener => new StackPusher(new SCListOpener()),

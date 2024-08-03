@@ -1,4 +1,4 @@
-﻿using StackControl.BSObjects;
+﻿using StackControl.SCObjects;
 using StackControl.SCCommands;
 using StackControle.SCCommands;
 using System;
@@ -55,6 +55,8 @@ namespace StackControl
             { "≥", new BiggerOrEquals() },
             { "↥", new Maximum() },
 
+            { "∪", new Union() },
+
             { "∅", new StackPusher(new SCEmptyArray()) }
         };
 
@@ -69,6 +71,7 @@ namespace StackControl
             { "reverse", "⟺" },
 
             { "each", "∵" },
+            { "union", "∪" },
 
             { "aput", "⇥" },
             { "apush", "⇤" },

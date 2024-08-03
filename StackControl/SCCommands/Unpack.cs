@@ -1,4 +1,4 @@
-﻿using StackControl.BSObjects;
+﻿using StackControl.SCObjects;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,7 +11,7 @@ namespace StackControl.SCCommands
     {
         public override void Call(RuntimeEnvironment environment)
         {
-            var arr = environment.Pop().As<BSObjects.SCArray>();
+            var arr = environment.Pop().As<SCObjects.SCArray>();
             foreach (var item in arr.Values) 
                 environment.Push(item);
         }

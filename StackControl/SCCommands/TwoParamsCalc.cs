@@ -1,4 +1,4 @@
-﻿using StackControl.BSObjects;
+﻿using StackControl.SCObjects;
 using System.Text;
 
 namespace StackControl.SCCommands
@@ -11,7 +11,7 @@ namespace StackControl.SCCommands
         {
             var current = environment.GetCurrent();
 
-            if (current is BSObjects.SCArray arr)
+            if (current is SCObjects.SCArray arr)
             {
                 environment.Pop();
                 environment.Push(Calculate(arr.Values.Select(e => (e as SCNumber) ?? throw new BSNotANumberException())));
@@ -23,7 +23,7 @@ namespace StackControl.SCCommands
                 environment.Pop();
                 environment.Push(Calculate(firstNumber, secondNumber));
             }
-            else throw new BSWrongArgumentTypeException();
+            else throw new SCWrongArgumentTypeException();
         }
     }
 
@@ -54,7 +54,7 @@ namespace StackControl.SCCommands
             x.Value - y.Value;
 
         public override SCNumber Calculate(IEnumerable<SCNumber> numbers) =>
-            throw new BSWrongArgumentTypeException();
+            throw new SCWrongArgumentTypeException();
     }
     public class Div : TwoParamsCalc
     {
@@ -63,7 +63,7 @@ namespace StackControl.SCCommands
             x.Value / y.Value;
 
         public override SCNumber Calculate(IEnumerable<SCNumber> numbers) =>
-            throw new BSWrongArgumentTypeException();
+            throw new SCWrongArgumentTypeException();
     }
     public class Mod : TwoParamsCalc
     {
@@ -72,6 +72,6 @@ namespace StackControl.SCCommands
             x.Value % y.Value;
 
         public override SCNumber Calculate(IEnumerable<SCNumber> numbers) =>
-            throw new BSWrongArgumentTypeException();
+            throw new SCWrongArgumentTypeException();
     }
 }
