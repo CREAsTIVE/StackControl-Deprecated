@@ -24,6 +24,7 @@ namespace StackControl
         {
             { "+", new Add() },
             { "-", new Sub() },
+            { "∸", new ReversedSub() },
             { "*", new Mul() },
             { "/", new Div() },
             { "%", new Mod() },
@@ -75,11 +76,15 @@ namespace StackControl
             { "R", new Read() },
             { "W", new Print() },
 
-            {"⁜", new ArraySplit(new SCChar(' ')) }
+            {"⁜", new ArraySplit(new SCChar(' ')) },
+
+            { "∏", new ArrayProduct()}
         };
 
         public static Dictionary<string, string> DefaultAliases = new()
         {
+            { "rsub", "∸" },
+
             { "mvl", "←" },
             { "mvr", "→" },
             { "range", "⇡" },
@@ -108,6 +113,8 @@ namespace StackControl
             { "aloopl", "↷"},
 
             { "alen", "⬌" },
+
+            { "product", "∏" },
 
             { "popnext", "⟹" },
             { "popbefore", "⟸" },

@@ -56,6 +56,15 @@ namespace StackControl.SCCommands
         public override SCNumber Calculate(IEnumerable<SCNumber> numbers) =>
             throw new SCWrongArgumentTypeException();
     }
+
+    public class ReversedSub : TwoParamsCalc
+    {
+        public override string RawView => "<∸>";
+        public override SCNumber Calculate(SCNumber x, SCNumber y) =>
+            y.Value - x.Value;
+        public override SCNumber Calculate(IEnumerable<SCNumber> numbers) =>
+            throw new SCWrongArgumentTypeException();
+	}
     public class Div : TwoParamsCalc
     {
         public override string RawView => "</>";

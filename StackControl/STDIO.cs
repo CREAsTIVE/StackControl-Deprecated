@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace StackControl
 {
-	public interface DIOI
+	public interface STDIO
 	{
 		public bool IsReadOnly { get; }
 		public string ReadLine();
@@ -23,7 +23,7 @@ namespace StackControl
 		public void Debug(string message);
 	}
 
-	public class ConsoleDIOI : DIOI
+	public class ConsoleIO : STDIO
 	{
 		public bool IsReadOnly => false;
 		public void Print(string line) => Console.Write(line);

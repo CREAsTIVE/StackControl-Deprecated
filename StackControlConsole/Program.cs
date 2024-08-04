@@ -5,7 +5,7 @@ while (true)
 {
     Console.Write("$ ");
     RuntimeEnvironment environment = new RuntimeEnvironment();
-	environment.IO = new ConsoleDIOI();
+	environment.IO = new ConsoleIO();
 
     var input = Console.ReadLine() ?? "";
 

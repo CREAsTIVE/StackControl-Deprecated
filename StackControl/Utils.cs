@@ -12,5 +12,11 @@ namespace StackControl
 			string.Join(separator, enumerable);
 		public static string JoinEnumerable<T>(this IEnumerable<T> enumerable, char separator) =>
 			string.Join(separator, enumerable);
+
+		public static void Each<T>(this IEnumerable<T> arr, Action<T> act)
+		{
+            foreach (var item in arr)
+                act(item);
+        }
 	}
 }

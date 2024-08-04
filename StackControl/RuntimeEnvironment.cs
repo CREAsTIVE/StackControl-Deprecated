@@ -50,6 +50,6 @@ namespace StackControl
         public SCObject? Current { get => CursorNode?.Value; }
         public SCObject GetCurrent() => CursorNode?.Value ?? throw new BSStackUnderflowException(); // TODO: NoValueException
 
-        public DIOI? IO;
+        public STDIO? IO;
     }
 }

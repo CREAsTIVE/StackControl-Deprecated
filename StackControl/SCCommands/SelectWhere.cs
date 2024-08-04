@@ -19,7 +19,7 @@ namespace StackControle.SCCommands
 
             foreach (var item in arr.Values)
             {
-                environment.Push(item);
+                environment.Push(item.Clone());
                 method.Call(environment);
                 var res = environment.Pop().As<SCNumber>();
                 if (res.Value != 0)
