@@ -8,6 +8,6 @@ namespace StackControl.SCCommands
 {
     public abstract class BuiltInCommand : Command
     {
-        public override string RawView => "<built-in function>";
+        public override string RawView => $"{CommandIcon}";
     }
 }

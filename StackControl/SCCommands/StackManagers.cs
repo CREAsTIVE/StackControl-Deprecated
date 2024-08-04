@@ -9,7 +9,7 @@ namespace StackControl.SCCommands
     public class Pop : BuiltInCommand
     {
         public override void Call(RuntimeEnvironment environment) => environment.Pop();
-		public class Next : BuiltInCommand
+		public class ShiftR : BuiltInCommand
 		{
 			public override void Call(RuntimeEnvironment environment)
 			{
@@ -17,7 +17,7 @@ namespace StackControl.SCCommands
 				environment.Pop();
 			}
 		}
-		public class Shift : BuiltInCommand
+		public class ShiftL : BuiltInCommand
 		{
 			public override void Call(RuntimeEnvironment environment)
 			{

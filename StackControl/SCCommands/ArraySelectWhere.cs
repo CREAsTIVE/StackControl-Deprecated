@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace StackControle.SCCommands
 {
-    public class SelectWhere : BuiltInCommand
+    public class ArraySelectWhere : BuiltInCommand
     {
         public override void Call(RuntimeEnvironment environment)
         {

@@ -10,7 +10,7 @@ namespace StackControl.SCObjects
     {
         public SCCommandContainer(Command command) => Command = command;
         public Command Command;
-        public override string StackView() => $"#{Command.RawView}";
+        public override string StackView() => $"◉{Command.RawView}";
 
         public override SCObject Clone() => new SCCommandContainer(Command);
 

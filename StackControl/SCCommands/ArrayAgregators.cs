@@ -14,4 +14,9 @@ namespace StackControle.SCCommands
         public override void Call(RuntimeEnvironment environment) =>
             environment.Push(environment.Pop().As<SCArray>().Values.MaxBy(e => e.As<SCNumber>().Value)?.As<SCNumber>() ?? new SCNumber(double.MinValue));
     }
+	public class ArrayLength : BuiltInCommand
+	{
+		public override void Call(RuntimeEnvironment environment) =>
+			environment.Push((SCNumber)environment.Pop().As<SCArray>().Values.Count);
+	}
 }

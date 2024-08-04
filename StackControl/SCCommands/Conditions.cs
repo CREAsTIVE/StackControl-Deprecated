@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace StackControl.SCCommands
 {
-    public class InlineIfElse : BuiltInCommand
+    public class IfElseCondition : BuiltInCommand
     {
         public override void Call(RuntimeEnvironment environment)
         {
@@ -20,7 +20,7 @@ namespace StackControl.SCCommands
         }
     }
 
-    public class ExecuteWhen : BuiltInCommand
+    public class IfCondition : BuiltInCommand
     {
 		public override void Call(RuntimeEnvironment environment)
 		{

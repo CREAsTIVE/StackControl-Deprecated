@@ -21,7 +21,7 @@ namespace StackControlWindowsForms
 		public MainWindow()
 		{
 			InitializeComponent();
-			environment = new();
+			environment = StackControl.Environment.Default;
 			compiler = new(environment);
 		}
 

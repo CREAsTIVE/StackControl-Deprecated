@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace StackControl.SCCommands
 {
-    public class Unpack : BuiltInCommand
+    public class ArrayUnpack : BuiltInCommand
     {
         public override void Call(RuntimeEnvironment environment)
         {

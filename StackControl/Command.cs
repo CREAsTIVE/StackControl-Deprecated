@@ -8,7 +8,8 @@ namespace StackControl
 {
     public abstract class Command
     {
-        public abstract void Call(RuntimeEnvironment environment);
+		public string CommandIcon = "built-in";
+		public abstract void Call(RuntimeEnvironment environment);
         public abstract string RawView { get; }
     }
 }

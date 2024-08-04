@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace StackControl.SCCommands
 {
-    public class Dub : BuiltInCommand
+    public class Duplicate : BuiltInCommand
     {
         public override void Call(RuntimeEnvironment environment) => environment.Push(environment.GetCurrent().Clone());
     }
-    public class QuadroDublication : BuiltInCommand
+    public class QuadroDuplicate : BuiltInCommand
     {
 		public override void Call(RuntimeEnvironment environment)
 		{

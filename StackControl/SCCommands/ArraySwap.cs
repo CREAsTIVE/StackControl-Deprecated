@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace StackControl.SCCommands
 {
-    public class ArrayDoubleSwap : BuiltInCommand
+    public class ArraySwap : BuiltInCommand
     {
         public override void Call(RuntimeEnvironment environment)
         {

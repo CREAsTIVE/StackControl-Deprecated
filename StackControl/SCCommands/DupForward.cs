@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace StackControl.SCCommands
 {
-	public class DubForward : BuiltInCommand
+	public class DupForward : BuiltInCommand
 	{
 		public override void Call(RuntimeEnvironment environment)
 		{

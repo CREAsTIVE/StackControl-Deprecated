@@ -21,7 +21,7 @@ namespace StackControl
             tokenizer = new(enivroment);
         }
 
-        public Compiler() : this(new Environment())
+        public Compiler() : this(Environment.Default)
         {
 
         }

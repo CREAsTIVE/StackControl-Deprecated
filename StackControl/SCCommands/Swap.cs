@@ -6,13 +6,14 @@ using System.Threading.Tasks;
 
 namespace StackControl.SCCommands
 {
-    public class CustomDelegate : Command
+    public class Swap : BuiltInCommand
     {
-        public List<Command> Commands = new();
-        public override string RawView => throw new NotImplementedException();
-
         public override void Call(RuntimeEnvironment environment)
         {
+            var a = environment.Pop();
+            var b = environment.Pop();
+            environment.Push(a);
+            environment.Push(b);
         }
     }
 }
