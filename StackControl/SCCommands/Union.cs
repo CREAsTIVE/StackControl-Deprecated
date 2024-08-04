@@ -11,7 +11,7 @@ namespace StackControl.SCCommands
 	{
 		public override void Call(RuntimeEnvironment environment)
 		{
-			var arr = environment.GetCurrent().As<SCArray<SCObject>>();
+			var arr = environment.GetCurrent().As<SCArray>();
 			arr.MakeOriginal();
 
 			var newArrValues = new List<SCObject>(arr.Values.Count);

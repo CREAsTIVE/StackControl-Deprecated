@@ -11,20 +11,12 @@ namespace StackControl.SCCommands
     {
         public override void Call(RuntimeEnvironment environment)
         {
-            environment.Pop().As<ICallable>().Call(environment);
-            
+            var onFalse = environment.Pop().As<ICallable>();
+            var onTrue = environment.Pop().As<ICallable>();
             if (environment.Pop().As<SCNumber>().Value != 0)
-            {
-                environment.Move(-1);
-                environment.Pop();
-                environment.Move(1);
-                environment.Pop().As<ICallable>().Call(environment);
-            }
+                onTrue.Call(environment);
             else
-            {
-                environment.Pop();
-                environment.Pop().As<ICallable>().Call(environment);
-            }
+                onFalse.Call(environment);
         }
     }
 

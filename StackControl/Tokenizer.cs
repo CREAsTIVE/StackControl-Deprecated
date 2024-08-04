@@ -83,7 +83,9 @@ namespace StackControl
 					{
 						next = reader.Next();
 						if (!(char.IsDigit(next) || NameSymbols.Contains(char.ToLower(next))))
-							break;
+						{
+							reader.Back(); break;
+						}
 						name += next;
 					}
 					if (environment.Aliases.TryGetValue(name, out var al))

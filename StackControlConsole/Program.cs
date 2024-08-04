@@ -5,6 +5,8 @@ while (true)
 {
     Console.Write("$ ");
     RuntimeEnvironment environment = new RuntimeEnvironment();
+	environment.IO = new ConsoleDIOI();
+
     var input = Console.ReadLine() ?? "";
 
     var parsed = compiler.tokenizer.Parse(input);
@@ -13,11 +15,13 @@ while (true)
 
     Console.WriteLine($"Parsed:\n{compiler.tokenizer.Unparse(parsed)}");
 
-    Console.WriteLine("----------");
+	Console.WriteLine("----------");
 
-    Compiler.Run(compiler.ParseCommands(parsed.ToArray()), environment);
+	Compiler.Run(compiler.ParseCommands(parsed.ToArray()), environment);
 
-    foreach (var stackVal in environment.Stack)
+	Console.WriteLine("----------");
+
+	foreach (var stackVal in environment.Stack)
         Console.WriteLine(stackVal.StackView());
     Console.WriteLine("----------\n");
 }

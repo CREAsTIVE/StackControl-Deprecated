@@ -70,7 +70,12 @@ namespace StackControl
             { "∅", new StackPusher(new SCEmptyArray()) },
 
             { "⟧", new StackPusher(new SCListOpenGeneratorCloser()) },
-            { "⟦", new ListOpenGenerator()}
+            { "⟦", new ListOpenGenerator()},
+
+            { "R", new Read() },
+            { "W", new Print() },
+
+            {"⁜", new ArraySplit(new SCChar(' ')) }
         };
 
         public static Dictionary<string, string> DefaultAliases = new()
@@ -97,6 +102,8 @@ namespace StackControl
             { "apopfirst", "⟃" },
             { "aempty", "∅" },
 
+            { "aremovelast", "⌫" },
+
             { "aloopr", "↶" },
             { "aloopl", "↷"},
 
@@ -110,7 +117,12 @@ namespace StackControl
             { "boreq", "≥" },
             { "max", "↥" },
             { "listgenopen", "⟦" },
-            { "listgenclose", "⟧" }
+            { "listgenclose", "⟧" },
+
+            { "readline", "⌨" },
+            { "writeline", "🖥" },
+
+            { "split", "⁜" }
 		};
 
         public string? GetByAlias(string key)

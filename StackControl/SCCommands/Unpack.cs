@@ -11,7 +11,7 @@ namespace StackControl.SCCommands
     {
         public override void Call(RuntimeEnvironment environment)
         {
-            var arr = environment.Pop().As<SCObjects.SCArray>();
+            var arr = environment.Pop().As<SCArray>();
             foreach (var item in arr.Values) 
                 environment.Push(item);
         }

@@ -18,14 +18,20 @@ namespace StackControl.SCObjects
         };
 
         public override string StackView() => $"'{value}'";
+		public override SCObject Clone() => new SCChar(value);
 	}
     public class SCString : SCArray
     {
         public SCString(string value) => Values = value.Select<char, SCObject>(ch => new SCChar(ch)).ToList();
-        public SCString(SCArray<SCObject> charrArr) => Values = new List<SCObject>(charrArr.Values);
+        public SCString(SCArray charrArr) => Values = new List<SCObject>(charrArr.Values);
 
-        public override string StackView() => $"\"{Values.Select(element => element.As<SCChar>().value).JoinEnumerable("")}\"";
+        public string StringValue => Values.Select(element => element.As<SCChar>().value).JoinEnumerable("");
+
+
+		public override string StackView() => $"\"{StringValue}\"";
 
         public override SCObject Clone() => new SCString(this);
+
+        // public static implicit operator SCString(SCArray arr) => 
     }
 }

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace StackControl.SCObjects
 {
@@ -16,31 +17,30 @@ namespace StackControl.SCObjects
             return base.SCEquals(other);
 		}
 	}
-    public class SCArray : SCArray<SCObject> { }
-    public class SCArray<T> : SCObject, ICallable where T : SCObject
+    public class SCArray : SCObject, ICallable
     {
         public bool Original = true;
 
-        public List<T> Values;
-        public SCArray(List<T> values) { Values = values; Original = false; }
+        public List<SCObject> Values;
+        public SCArray(List<SCObject> values) { Values = values; Original = false; }
         public SCArray() { Values = new(); }
-        public SCArray(SCArray<T> old)
+        public SCArray(SCArray old)
         {
             Values = old.Values;
             Original = false;
         }
 
         // Call before update values
-        public SCArray<T> MakeOriginal()
+        public SCArray MakeOriginal()
         {
             if (Original)
                 return this;
             Original = true;
-            Values = new List<T>(Values);
+            Values = new List<SCObject>(Values);
             return this;
         }
 
-        public override SCObject Clone() => new SCArray<T>(Values);
+        public override SCObject Clone() => new SCArray(Values);
 
         public override string StackView() => $"[{string.Join(" ", Values.Select(e => e.StackView()))}]";
 
@@ -53,7 +53,7 @@ namespace StackControl.SCObjects
         public override bool SCEquals(SCObject other)
         {
             if (other is SCEmptyArray) return Values.Count == 0;
-            else if (other is SCArray<T> arr) {
+            else if (other is SCArray arr) {
                 if (arr.Values == Values) return true;
                 if (arr.Values.Count == Values.Count)
                 {
