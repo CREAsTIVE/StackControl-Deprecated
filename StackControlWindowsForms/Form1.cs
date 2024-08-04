@@ -29,22 +29,21 @@ namespace StackControlWindowsForms
 		{
 			if (ClearStack.Checked || runtimeEnvironment is null)
 				runtimeEnvironment = new();
-
-			OutputContainer.Text = "[DEBUG] Executing...\r\n";
-
-			runtimeEnvironment.IO = this;
-			currentLine = 0;
-			inputLines = InputContainer.Text.Split("\n");
-
-			var code = CommandInsert.Text;
-
-			var tokens = compiler.tokenizer.Parse(code);
-			if (ToSymbols.Checked)
-				CommandInsert.Text = compiler.tokenizer.Unparse(tokens);
-
-			var commands = compiler.ParseCommands(tokens.ToArray());
 			try
 			{
+				OutputContainer.Text = "[DEBUG] Executing...\r\n";
+
+				runtimeEnvironment.IO = this;
+				currentLine = 0;
+				inputLines = InputContainer.Text.Split("\n");
+
+				var code = CommandInsert.Text;
+
+				var tokens = compiler.tokenizer.Parse(code);
+				if (ToSymbols.Checked)
+					CommandInsert.Text = compiler.tokenizer.Unparse(tokens);
+
+				var commands = compiler.ParseCommands(tokens.ToArray());
 				Compiler.Run(commands, runtimeEnvironment);
 
 				StackView.Text = string.Join("\r\n", runtimeEnvironment.Stack.Select(e => e.StackView()));
