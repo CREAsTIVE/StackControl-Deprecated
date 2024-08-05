@@ -21,13 +21,19 @@ namespace StackControl
 				var env = new Environment();
 
                 // Math
-                env.Command(new Add(), "+");
-                env.Command(new Sub(), "-");
-                env.Command(new ReversedSub(), "∸");
-                env.Command(new Mul(), "÷", "div");
-                env.Command(new Mod(), "%"); // Replace to % of value
+                env.Command(new TwoParamsOperation((x, y) => x+y), "+");
+                env.Command(new TwoParamsOperation((x, y) => Convert.ToInt32($"{(int)x}{(int)y}")), "◠", "concat");
+                env.Command(new TwoParamsOperation((x, y) => Convert.ToInt32($"{(int)y}{(int)x}")), "◡", "rconcat");
+                env.Command(new TwoParamsOperation((x, y) => x-y), "-");
+                env.Command(new TwoParamsOperation((x, y) => y-x), "∸", "rsub");
+                env.Command(new TwoParamsOperation((x, y) => x * y), "*");
+                env.Command(new TwoParamsOperation((x, y) => x/y), "÷", "div");
+                env.Command(new TwoParamsOperation((x, y) => x%y), "%"); // Replace to % of value
 
                 env.Command(new StackPusher(new SCNumber(double.PositiveInfinity)), "∞", "inf");
+
+                env.Command(new NumberUnaryOperation(v => v*v*v), "³", "cube");
+                env.Command(new NumberUnaryOperation(v => v * v), "²", "square");
 
                 // Stack
                 env.Command(new Move(-1), "←", "mvl");
@@ -36,7 +42,7 @@ namespace StackControl
                 env.Command(new Pop.ShiftR(), "⟹", "shiftr");
                 env.Command(new Pop.ShiftL(), "⟸", "shiftl");
                 env.Command(new Duplicate(), ":");
-                env.Command(new QuadroDuplicate(), "⁞", "quadrodup", "qdup");
+                env.Command(new QuadroDuplicate(), "⁞", "quadrodup", "qdup", "dup4"); 
                 env.Command(new Swap(), "⇆", "swap");
 
 				// Arrays
