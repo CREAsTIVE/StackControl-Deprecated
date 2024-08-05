@@ -21,12 +21,13 @@ namespace StackControl
 				var env = new Environment();
 
                 // Math
-
                 env.Command(new Add(), "+");
                 env.Command(new Sub(), "-");
                 env.Command(new ReversedSub(), "∸");
                 env.Command(new Mul(), "÷", "div");
                 env.Command(new Mod(), "%"); // Replace to % of value
+
+                env.Command(new StackPusher(new SCNumber(double.PositiveInfinity)), "∞", "inf");
 
                 // Stack
                 env.Command(new Move(-1), "←", "mvl");
@@ -56,6 +57,7 @@ namespace StackControl
 
                 env.Command(new ArraySelectWhere(), "⊚", "where");
                 env.Command(new Each(), "∵", "each");
+                env.Command(new NoPickEach(), "∴", "neach");
 				env.Command(new Union(), "∪", "union");
 				env.Command(new ArrayProduct(), "∏", "product");
 
