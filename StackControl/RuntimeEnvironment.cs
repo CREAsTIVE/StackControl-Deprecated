@@ -24,7 +24,7 @@ namespace StackControl
         public SCObject Pop()
         {
             if (CursorNode == null)
-                throw new BSStackUnderflowException();
+                throw new SCStackUnderflowException();
             var currentNode = CursorNode;
             CursorNode = CursorNode.Previous;
             Stack.Remove(currentNode);
@@ -36,19 +36,19 @@ namespace StackControl
             if (offset >= 0)
                 for (var i = 0; i < offset; i++)
                     if (CursorNode != null)
-                        CursorNode = CursorNode?.Next ?? throw new BSStackOverflowException();
+                        CursorNode = CursorNode?.Next ?? throw new SCStackOverflowException();
                     else
                         CursorNode = Stack.First;
             else
                 for (var i = 0; i < -offset; i++)
                     if (CursorNode == null)
-                        throw new BSStackUnderflowException();
+                        throw new SCStackUnderflowException();
                     else
                         CursorNode = CursorNode?.Previous;
         }
 
         public SCObject? Current { get => CursorNode?.Value; }
-        public SCObject GetCurrent() => CursorNode?.Value ?? throw new BSStackUnderflowException(); // TODO: NoValueException
+        public SCObject GetCurrent() => CursorNode?.Value ?? throw new SCStackUnderflowException(); // TODO: NoValueException
 
         public STDIO? IO;
     }

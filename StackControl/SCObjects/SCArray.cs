@@ -63,7 +63,7 @@ namespace StackControl.SCObjects
                     return true;
                 }
             }
-            return false;
+            return other.SCEquals(Values[0]);
         }
     }
 }

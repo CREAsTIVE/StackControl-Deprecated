@@ -38,4 +38,14 @@ namespace StackControl.SCCommands
 			arr.Values.RemoveAt(0);
 		}
 	}
+
+	public class ArrayDelete : BuiltInCommand
+	{
+		public bool first = false;
+		public override void Call(RuntimeEnvironment environment)
+		{
+			var arr = environment.GetCurrent().As<SCArray>().MakeOriginal();
+			arr.Values.RemoveAt(first ? 0 : arr.Values.Count-1);
+		}
+	}
 }

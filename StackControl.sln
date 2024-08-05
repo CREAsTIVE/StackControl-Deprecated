@@ -9,7 +9,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StackControlConsole", "Stac
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StackControlVK", "StackControlVK\StackControlVK.csproj", "{23F6E01F-E59E-4098-9B1C-E6C890298CBF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StackControlWPF", "StackControlWPF\StackControlWPF.csproj", "{18070752-98C7-494A-BF73-4BDEE4359921}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StackControlWPF", "StackControlWPF\StackControlWPF.csproj", "{18070752-98C7-494A-BF73-4BDEE4359921}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

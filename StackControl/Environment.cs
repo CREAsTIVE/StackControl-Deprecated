@@ -50,7 +50,8 @@ namespace StackControl
 				env.Command(new SCCommands.Range(), "⇡", "range");
 				env.Command(new ArraySplit(new SCChar(' ')), "⁜", "split"); // change icon
 
-				env.Command(new ArrayUnpack(), "⦽", "unpack");
+				env.Command(new ArrayUnpack(), "⍃", "unpack");
+                env.Command(new ArrayUnpack.Forward(), "⍄", "unpackf");
 
                 env.Command(new ArraySwap(), "↹", "aswap");
                 env.Command(new ArrayReverse(), "🗘", "areverse");
@@ -60,11 +61,14 @@ namespace StackControl
                 env.Command(new ArrayPopFirst(), "⟃", "apopfirst", "apopf");
                 env.Command(new ShiftArrayRight(), "↶", "aloopr");
                 env.Command(new ShiftArrayLeft(), "↷", "aloopl");
+                env.Command(new ArrayDelete() { first = true }, "⌦", "adelfirst", "adelf");
+                env.Command(new ArrayDelete() { first = false }, "⌫", "adel");
 
                 env.Command(new ArraySelectWhere(), "⊚", "where");
                 env.Command(new Each(), "∵", "each");
-                env.Command(new NoPickEach(), "∴", "neach");
+                env.Command(new InvokeEach(), "∴", "ieach");
 				env.Command(new Union(), "∪", "union");
+                env.Command(new Join(), "⊍", "join");
 				env.Command(new ArrayProduct(), "∏", "product");
 
 				env.Command(new IndexOf(), "⊗", "indexof");
@@ -83,8 +87,10 @@ namespace StackControl
                 // Conditions
                 env.Command(new IfElseCondition(), "⁇", "ifelse", "ie");
                 env.Command(new IfCondition(), "?");
+                env.Command(new IfNotCondition(), "¿");
 
 				env.Command(new Equals(), "=");
+                env.Command(new Equals.Not(), "≠", "neq");
 				env.Command(new Smaller(), "<");
 				env.Command(new Bigger(), ">");
 				env.Command(new SmallerOrEquals(), "≤", "leq");

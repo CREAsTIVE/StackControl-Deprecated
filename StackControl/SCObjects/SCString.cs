@@ -14,6 +14,7 @@ namespace StackControl.SCObjects
         {
             SCChar ch => value == ch.value,
             SCNumber id => value == id.Value,
+			SCString str => SCEquals(str.Values[0].As<SCChar>()),
             _ => false
         };
 

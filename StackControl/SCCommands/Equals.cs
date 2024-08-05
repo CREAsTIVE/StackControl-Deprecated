@@ -53,6 +53,12 @@ namespace StackControle.SCCommands
     {
         public override void Call(RuntimeEnvironment environment) =>
             environment.Push(environment.Pop().SCEquals(environment.Pop()) ? (SCNumber)1 : (SCNumber)0);
+
+        public class Not : BuiltInCommand
+        {
+			public override void Call(RuntimeEnvironment environment) =>
+			environment.Push(environment.Pop().SCEquals(environment.Pop()) ? (SCNumber)0 : (SCNumber)1);
+		}
     }
     
 }

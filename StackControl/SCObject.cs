@@ -16,7 +16,11 @@ namespace StackControl
         public override string ToString() => $"BSObject: {StackView()}";
         public virtual SCObject Clone() => this;
 
-        public virtual bool SCEquals(SCObject other) => GetType().IsEquivalentTo(other.GetType());
+        public virtual bool SCEquals(SCObject other) => other switch
+        {
+            SCArray arr => SCEquals(arr.Values[0]),
+            _ => GetType().IsEquivalentTo(other.GetType()),
+        };
 
         public T As<T>() where T : class => (this as T) ?? throw new SCWrongArgumentTypeException();
         

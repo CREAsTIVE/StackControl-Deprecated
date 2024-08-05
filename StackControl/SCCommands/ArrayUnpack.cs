@@ -15,5 +15,15 @@ namespace StackControl.SCCommands
             foreach (var item in arr.Values) 
                 environment.Push(item);
         }
+        public class Forward : BuiltInCommand
+        {
+			public override void Call(RuntimeEnvironment environment)
+			{
+				var arr = environment.Pop().As<SCArray>();
+				foreach (var item in arr.Values)
+					environment.Push(item);
+                environment.Move(-arr.Values.Count);
+			}
+		}
     }
 }

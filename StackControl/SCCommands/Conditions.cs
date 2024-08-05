@@ -25,8 +25,18 @@ namespace StackControl.SCCommands
 		public override void Call(RuntimeEnvironment environment)
 		{
             var action = environment.Pop().As<ICallable>();
-            if (environment.Pop().As<SCNumber>().Value != 0)
-                action.Call(environment);
+			if (environment.Pop() is not SCNumber num || num.Value != 0)
+				action.Call(environment);
+		}
+	}
+
+    public class IfNotCondition : BuiltInCommand // ¿
+	{
+		public override void Call(RuntimeEnvironment environment)
+		{
+			var action = environment.Pop().As<ICallable>();
+			if (environment.Pop() is SCNumber num && num.Value == 0)
+				action.Call(environment);
 		}
 	}
 }

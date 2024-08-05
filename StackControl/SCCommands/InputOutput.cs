@@ -10,7 +10,9 @@ namespace StackControl.SCCommands
 	public class Print : BuiltInCommand
 	{
 		public override void Call(RuntimeEnvironment environment) =>
-			environment?.IO?.PrintLine(environment.Pop().As<SCString>().StringValue);
+			environment?.IO?.PrintLine(new(
+				environment.Pop().As<SCArray>().Values.Aggregate("", (acc, val) => acc+=val switch { SCString str => str.StringValue, SCChar c => c.value, _ => val.StackView() })
+			));
 	}
 
 	public class Read : BuiltInCommand
