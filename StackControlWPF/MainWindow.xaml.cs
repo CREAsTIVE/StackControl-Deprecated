@@ -44,6 +44,8 @@ namespace StackControlWPF
 			if (!(KeepRuntimeCheckBox?.IsChecked ?? false) || runtimeEnvironment is null)
 				runtimeEnvironment = new();
 
+			runtimeEnvironment.IO = this;
+
 			OutputConsole.Text = "";
 			Debug("Executing...");
 
@@ -56,6 +58,7 @@ namespace StackControlWPF
 
 				// loads input
 				storedLines = InputConsole.Text.Replace("\r", "").Split('\n').AsEnumerable().GetEnumerator();
+				storedLines.MoveNext();
 
 				var comands = compiler.ParseCommands(parsed.ToArray());
 
