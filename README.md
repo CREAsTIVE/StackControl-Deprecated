@@ -1,3 +1,5 @@
+# That version is depreciated. Check out [new version](https://github.com/CREAsTIVE/StackControl)!
+
 ﻿StackControl
 =
 StackControl is an esoteric language that was created for fun. The main feature is that now there is a cursor on the stack that you can move as you like
